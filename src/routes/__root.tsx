@@ -41,6 +41,13 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Monsta Media Group" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Monsta Media Group — Get Paying Customers On Tap" },
+      { name: "twitter:title", content: "Monsta Media Group — Get Paying Customers On Tap" },
+      { name: "description", content: "Frontend UI for Monsta Media Group, a digital marketing agency focused on small business growth." },
+      { property: "og:description", content: "Frontend UI for Monsta Media Group, a digital marketing agency focused on small business growth." },
+      { name: "twitter:description", content: "Frontend UI for Monsta Media Group, a digital marketing agency focused on small business growth." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/RhJyNcbuyBfZnrsf1pm78FbHr5o2/social-images/social-1776491475085-MM_Franchisee_-East_Ham_UK_white-.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/RhJyNcbuyBfZnrsf1pm78FbHr5o2/social-images/social-1776491475085-MM_Franchisee_-East_Ham_UK_white-.webp" },
     ],
     links: [
       {
