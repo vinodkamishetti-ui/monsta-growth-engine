@@ -35,7 +35,7 @@ const compareRows = [
   { feature: "Dedicated account lead", values: [false, true, true] },
 ];
 
-export default function PackagesPage() {
+function PackagesPage() {
   return (
     <PageShell>
       <PageHeader
