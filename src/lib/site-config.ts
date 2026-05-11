@@ -1,5 +1,5 @@
 /**
- * Monsta Media Group — Site configuration & content.
+ * Monsta Media East Ham — Site configuration & content.
  *
  * This file is the single source of truth for static UI content so it can be
  * swapped for a CMS / Supabase fetch later. Keep all copy here, NOT in components.
@@ -9,20 +9,19 @@
  */
 
 export const site = {
-  name: "Monsta Media Group",
+  name: "Monsta Media East Ham",
   shortName: "Monsta",
   location: "East Ham, London",
   tagline: "Get Paying Customers On Tap",
   description:
     "A practical, full-funnel growth partner for small businesses. Paid ads, SEO, branding, social, funnels and automations — built to bring you predictable leads.",
-  email: "hello@monstamedia.co.uk",
-  phone: "+44 20 0000 0000",
+  email: "eastham@monstagroup.com",
+  phone: "+44 7424443984",
   address: "East Ham, London E6, United Kingdom",
   social: {
-    instagram: "https://instagram.com/monstamedia",
-    facebook: "https://facebook.com/monstamedia",
-    linkedin: "https://linkedin.com/company/monstamedia",
-    tiktok: "https://tiktok.com/@monstamedia",
+    instagram: "https://instagram.com/monstamediaeastham/",
+    facebook: "https://facebook.com/people/Monsta-media-Eastham-UK/61584146673534/",
+    linkedin: "https://linkedin.com/company/monstamediaeastham/",
   },
 } as const;
 
