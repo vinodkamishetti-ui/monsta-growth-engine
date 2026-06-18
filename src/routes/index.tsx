@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { TrustStrip } from "@/components/site/TrustStrip";
+import { StatsBar } from "@/components/site/StatsBar";
+import { TrustBadges } from "@/components/site/TrustBadges";
 import { CtaBlock } from "@/components/site/CtaBlock";
 import {
   services,
@@ -30,8 +32,16 @@ import {
 import mascot from "@/assets/monsta-mascot-hero.png";
 
 const iconMap = {
-  Target, Search, Share2, Sparkles, Zap, MonitorSmartphone,
-  Rocket, TrendingUp, ShieldCheck, Hammer,
+  Target,
+  Search,
+  Share2,
+  Sparkles,
+  Zap,
+  MonitorSmartphone,
+  Rocket,
+  TrendingUp,
+  ShieldCheck,
+  Hammer,
 } as const;
 
 function Icon({ name, className }: { name: string; className?: string }) {
@@ -82,8 +92,8 @@ function HomePage() {
             </h1>
 
             <p className="mt-7 max-w-xl text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We're {site.name} — a no-nonsense growth partner for small businesses.
-              Paid ads, SEO, funnels and automations that bring leads in week one.
+              We're {site.name} — a no-nonsense growth partner for small businesses. Paid ads, SEO,
+              funnels and automations that bring leads in week one.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -136,6 +146,7 @@ function HomePage() {
       </section>
 
       <TrustStrip />
+      <StatsBar />
 
       {/* SERVICES OVERVIEW */}
       <section className="container-x py-24 md:py-32">
@@ -149,8 +160,8 @@ function HomePage() {
             </h2>
           </div>
           <p className="text-base md:text-lg text-muted-foreground max-w-md">
-            Pick a single service or hand us the whole funnel. Either way, every lever
-            we pull is tied to one number: paying customers.
+            Pick a single service or hand us the whole funnel. Either way, every lever we pull is
+            tied to one number: paying customers.
           </p>
         </div>
 
@@ -166,11 +177,10 @@ function HomePage() {
                 <Icon name={s.icon} className="h-6 w-6" />
               </div>
               <h3 className="mt-6 text-2xl font-black text-foreground">{s.name}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
-                {s.short}
-              </p>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{s.short}</p>
               <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-                Explore <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                Explore{" "}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
           ))}
@@ -197,9 +207,7 @@ function HomePage() {
                   <Icon name={item.icon} className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 text-xl font-black text-foreground">{item.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {item.desc}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -308,9 +316,7 @@ function HomePage() {
             <div
               key={p.name}
               className={`relative rounded-3xl p-8 ${
-                p.highlighted
-                  ? "bg-primary text-primary-foreground glow-pink-lg"
-                  : "surface-card"
+                p.highlighted ? "bg-primary text-primary-foreground glow-pink-lg" : "surface-card"
               }`}
             >
               {p.highlighted && (
@@ -325,7 +331,9 @@ function HomePage() {
                   {p.cadence}
                 </span>
               </div>
-              <p className={`mt-3 text-sm ${p.highlighted ? "opacity-90" : "text-muted-foreground"}`}>
+              <p
+                className={`mt-3 text-sm ${p.highlighted ? "opacity-90" : "text-muted-foreground"}`}
+              >
                 {p.tagline}
               </p>
               <Link
@@ -405,9 +413,7 @@ function HomePage() {
               className="surface-card surface-card-hover rounded-3xl p-7 block"
             >
               <span className="text-eyebrow">{i.category}</span>
-              <h3 className="mt-4 text-xl font-black text-foreground leading-tight">
-                {i.title}
-              </h3>
+              <h3 className="mt-4 text-xl font-black text-foreground leading-tight">{i.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{i.excerpt}</p>
               <div className="mt-6 flex items-center justify-between text-xs text-muted-foreground">
                 <span>{i.readTime}</span>
@@ -418,9 +424,9 @@ function HomePage() {
         </div>
       </section>
 
-      <CtaBlock
-        secondary={{ label: "See Packages", to: "/packages" }}
-      />
+      <TrustBadges />
+
+      <CtaBlock secondary={{ label: "See Packages", to: "/packages" }} />
     </PageShell>
   );
 }

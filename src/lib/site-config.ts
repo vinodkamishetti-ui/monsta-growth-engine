@@ -313,43 +313,52 @@ export const insights = [
   {
     slug: "local-seo-quick-wins",
     title: "Local SEO: 7 quick wins you can do this week",
-    excerpt:
-      "Simple changes to your Google Business Profile that move the needle fast.",
+    excerpt: "Simple changes to your Google Business Profile that move the needle fast.",
     category: "SEO",
     readTime: "5 min read",
   },
   {
     slug: "funnel-vs-website",
     title: "Funnel vs website: what your business actually needs",
-    excerpt:
-      "Spoiler — you probably need both. Here's how to know which to build first.",
+    excerpt: "Spoiler — you probably need both. Here's how to know which to build first.",
     category: "Funnels",
     readTime: "7 min read",
   },
   {
     slug: "content-calendar-template",
     title: "The 30-day content calendar that actually gets posted",
-    excerpt:
-      "A copy-paste system for staying consistent on social without the burnout.",
+    excerpt: "A copy-paste system for staying consistent on social without the burnout.",
     category: "Social",
     readTime: "4 min read",
   },
   {
     slug: "automation-stack-2025",
     title: "The automation stack we use to follow up every lead",
-    excerpt:
-      "The exact tools, sequences and triggers that turn cold leads into customers.",
+    excerpt: "The exact tools, sequences and triggers that turn cold leads into customers.",
     category: "Automations",
     readTime: "8 min read",
   },
   {
     slug: "brand-positioning-small-business",
     title: "Brand positioning for small businesses (without the fluff)",
-    excerpt:
-      "How to stand out in a crowded market without spending a fortune on creative.",
+    excerpt: "How to stand out in a crowded market without spending a fortune on creative.",
     category: "Branding",
     readTime: "6 min read",
   },
+] as const;
+
+export const stats = [
+  { value: "150+", label: "Campaigns launched" },
+  { value: "£2.4M+", label: "Ad spend managed" },
+  { value: "4.9/5", label: "Avg. client rating" },
+  { value: "60+", label: "Businesses grown" },
+] as const;
+
+export const trustBadges = [
+  { icon: "ShieldCheck", label: "GDPR-compliant data handling" },
+  { icon: "Award", label: "Google & Meta certified partners" },
+  { icon: "Lock", label: "No lock-in contracts" },
+  { icon: "MapPin", label: "UK-based account team" },
 ] as const;
 
 export const trustLogos = [
