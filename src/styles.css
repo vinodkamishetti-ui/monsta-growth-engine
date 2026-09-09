@@ -276,4 +276,55 @@
     to { opacity: 1; transform: translateY(0); }
   }
   .animate-fade-up { animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* Scroll-triggered reveal — paired with the useInView hook */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .marquee-reverse {
+    animation: marquee 44s linear infinite reverse;
+  }
+
+  @keyframes blob-morph {
+    0%, 100% { border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%; transform: rotate(0deg) scale(1); }
+    33% { border-radius: 65% 35% 40% 60% / 55% 65% 35% 45%; transform: rotate(8deg) scale(1.06); }
+    66% { border-radius: 35% 65% 55% 45% / 40% 50% 50% 60%; transform: rotate(-6deg) scale(0.96); }
+  }
+  .animate-blob { animation: blob-morph 18s ease-in-out infinite; }
+  .animate-blob-slow { animation: blob-morph 26s ease-in-out infinite reverse; }
+
+  @keyframes particle-float {
+    0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+    50% { transform: translate(var(--drift-x, 8px), -22px); opacity: 1; }
+  }
+  .animate-particle { animation: particle-float var(--dur, 7s) ease-in-out infinite; }
+
+  /* Cursor-follow spotlight — element sets --x / --y via JS on pointermove */
+  .cursor-spotlight {
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), var(--pink-glow) 0%, transparent 70%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float,
+    .animate-pulse-glow,
+    .animate-blob,
+    .animate-blob-slow,
+    .animate-particle,
+    .marquee,
+    .marquee-reverse {
+      animation: none !important;
+    }
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 }

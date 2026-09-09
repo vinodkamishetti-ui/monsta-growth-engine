@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as LandingExampleRouteImport } from './routes/landing-example'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandingExampleRoute = LandingExampleRouteImport.update({
+  id: '/landing-example',
+  path: '/landing-example',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsRoute = InsightsRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
+  '/landing-example': typeof LandingExampleRoute
   '/packages': typeof PackagesRoute
   '/services': typeof ServicesRoute
   '/work': typeof WorkRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
+  '/landing-example': typeof LandingExampleRoute
   '/packages': typeof PackagesRoute
   '/services': typeof ServicesRoute
   '/work': typeof WorkRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/insights': typeof InsightsRoute
+  '/landing-example': typeof LandingExampleRoute
   '/packages': typeof PackagesRoute
   '/services': typeof ServicesRoute
   '/work': typeof WorkRoute
@@ -78,16 +87,25 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/insights'
+    | '/landing-example'
     | '/packages'
     | '/services'
     | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/insights' | '/packages' | '/services' | '/work'
+  to:
+    | '/'
+    | '/contact'
+    | '/insights'
+    | '/landing-example'
+    | '/packages'
+    | '/services'
+    | '/work'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/insights'
+    | '/landing-example'
     | '/packages'
     | '/services'
     | '/work'
@@ -97,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   InsightsRoute: typeof InsightsRoute
+  LandingExampleRoute: typeof LandingExampleRoute
   PackagesRoute: typeof PackagesRoute
   ServicesRoute: typeof ServicesRoute
   WorkRoute: typeof WorkRoute
@@ -123,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/packages'
       fullPath: '/packages'
       preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landing-example': {
+      id: '/landing-example'
+      path: '/landing-example'
+      fullPath: '/landing-example'
+      preLoaderRoute: typeof LandingExampleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights': {
@@ -153,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   InsightsRoute: InsightsRoute,
+  LandingExampleRoute: LandingExampleRoute,
   PackagesRoute: PackagesRoute,
   ServicesRoute: ServicesRoute,
   WorkRoute: WorkRoute,
@@ -160,3 +187,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
